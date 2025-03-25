@@ -11,7 +11,7 @@ footer{
     justify-content: space-between;
     align-items: center;
     padding: 40px 100px;
-    @include media-max(425px) {
+    @include media-max(768px) {
         padding: 40px 20px;
     }
     .footer-left{
@@ -19,7 +19,7 @@ footer{
         justify-content: space-between;
         align-items: center;
         gap: 35px;
-        @include media-max(425px) {
+        @include media-max(768px) {
             flex-direction: column;
             align-items: center;
             gap: 5px;
@@ -44,7 +44,7 @@ footer{
             justify-content: space-between;
             align-items: center;
             gap: 30px;
-            @include media-max(425px) {
+            @include media-max(768px) {
                 margin-top: 20px;
                 flex-direction: column;
                 gap: 10px;
