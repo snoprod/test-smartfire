@@ -1,0 +1,85 @@
+.sub-menu[data-variant="simple-list"] {
+    .sub-menu-list {
+        display: flex;
+        gap: 70px;
+        flex-wrap: wrap;
+
+        .sub-menu-item {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+}
+
+.sub-menu[data-variant="sub-brand-posts"],
+.sub-menu[data-variant="sub-network-posts"] {
+    gap: 70px;
+
+    .sub-menu-selector {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        min-width: 315px;
+
+        .sub-menu-selector-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                span {
+                    color: $color-primary;
+                }
+
+                .sub-menu-selector-item-icon {
+                    svg {
+                        path {
+                            fill: $color-primary;
+                        }
+                    }
+                }
+            }
+
+            span {
+                @extend .SUBMENU-TITLE-FONT;
+                color: $color-foreground;
+            }
+        }
+
+        .separator {
+            width: 100%;
+            height: 1px;
+            background-color: #C5E3EF;
+        }
+    }
+
+    .sub-menu-list {
+        display: none;
+        row-gap: 40px;
+        column-gap: min(32.5px, 65px);
+        flex-wrap: wrap;
+        justify-content: space-between;
+        &.active{
+            display: flex;
+        }
+    }
+}
+
+.sub-menu[data-variant="sub-sites-posts"] {
+    .sub-menu-list {
+        display: flex;
+        gap: 70px;
+        flex-wrap: wrap;
+
+        .sub-menu-item {
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+}

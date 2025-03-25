@@ -1,0 +1,43 @@
+@mixin media-max($_max-width) {
+    @media screen and (max-width: $_max-width) {
+        & {
+            @content;
+        }
+    }
+}
+
+@mixin media-min($_min-width) {
+    @media screen and (min-width: $_min-width) {
+        & {
+            @content;
+        }
+    }
+}
+
+header {
+    @include media-max(1024px) {
+        .menu{
+            .menu-items {
+                display: none!important;
+            }
+            .mobile-menu-sidebar-open{
+                display: block!important;
+            }
+        }
+    }
+    @include media-min(1025px) {
+        .menu{
+            .mobile-menu-sidebar-open{
+                display: none!important;
+            }
+        }
+        .mobile-menu-sidebar{
+            display: none!important;
+        }
+    }
+}
+footer{
+    @include media-max(1024px) {
+        flex-direction: column;
+    }
+}

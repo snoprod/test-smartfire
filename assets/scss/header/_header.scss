@@ -1,0 +1,171 @@
+@import "./parts/topBar";
+@import "./parts/subMenu";
+@import "./parts/subMenuItem";
+@import "./parts/mobileMenu";
+.menu {
+    position: relative;
+    transition: background-color 0.3s ease;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: transparent;
+        width: 100vw;
+        padding: 30px 40px;
+
+        .logo {
+            display: block;
+
+            img {
+                height: 70px;
+                width: auto;
+            }
+        }
+
+        .menu-items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+
+            .menu-items-list {
+                list-style: none;
+                display: flex;
+                gap: 30px;
+
+                .menu-item {
+                    .menu-item-link {
+                        @extend .MENU-FONT;
+                        text-decoration: none;
+                        color: $color-white;
+                        &.active{
+                            color: $color-primary;
+                        }
+                    }
+
+                    .sub-menu {
+                        position: absolute;
+                        top: 100%;
+                        width: 100%;
+                        background-color: $color-background-secondary;
+                        height: auto;
+                        left: 0px;
+                        display: flex;
+                        align-items: flex-start;
+                        justify-content: flex-start;
+                        padding: 80px 150px;
+                        transition: all 0.3s ease;
+                        visibility: hidden;
+                        opacity: 0;
+                        z-index: 100;
+                        &.active{
+                            visibility: visible;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .button {
+                @extend .MENU-FONT;
+                color: $color-white;
+                background-color: $color-primary;
+                padding: 17px 20px;
+                border: none;
+                cursor: pointer;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: $color-primary-hover;
+                }
+            }
+        }
+
+    }
+    &:hover,
+    &:focus,
+    &:active,
+    &[data-active="true"] {
+        background-color: $color-background;
+
+        .menu-items {
+            .menu-items-list {
+                .menu-item {
+                    .menu-item-link {
+                        color: $color-foreground;
+
+                        &:hover,
+                        &:focus,
+                        &:active {
+                            color: $color-primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .bottom-border {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background-color: $color-background;
+        margin: 0 40px;
+    }
+
+    &[data-variant="tiny"] {
+        .container {
+            padding: 0;
+            height: 90px;
+            background-color: $color-background;
+            padding: 0 40px;
+            .logo {
+                display: block;
+                img {
+                    height: 50px;
+                    width: auto;
+                }
+            }
+            .menu-items {
+                .menu-items-list {
+                    .menu-item {
+                        .menu-item-link {
+                            color: $color-foreground;
+                        }
+                    }
+                }
+            }
+        }
+        .bottom-border {
+            display: none;
+        }
+        &::after{
+            content: "";
+            display: block;
+            width: 279px;
+            height: 6px;
+            background-color: $color-primary;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+        }
+        &::before {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 6px;
+            background-color: $color-background-secondary;
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            right: 0;
+        }
+    }
+}
