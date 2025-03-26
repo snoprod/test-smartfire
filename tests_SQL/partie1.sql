@@ -16,6 +16,9 @@ SELECT
 FROM
     wp_posts AS posts
     INNER JOIN wp_users AS users ON posts.post_author = users.ID
+WHERE
+    posts.post_type = 'post'
+    AND posts.post_status = 'publish'
 GROUP BY
     users.ID
 
@@ -28,4 +31,5 @@ FROM
     INNER JOIN wp_postmeta AS postmeta ON postmeta.post_id = posts.ID
     AND postmeta.meta_key = '_thumbnail_id'
 WHERE
-    wp_posts.post_status = 'publish'
+    posts.post_status = 'publish'
+    AND posts.post_type = 'post'

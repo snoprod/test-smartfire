@@ -13,7 +13,7 @@ WHERE
 GROUP BY
     posts.ID
 ORDER BY
-    post_date DESC
+    posts.post_date DESC
 LIMIT
     5
 
