@@ -5,7 +5,8 @@ SELECT
     COUNT(postmeta.meta_id) AS 'countMeta'
 FROM
     wp_posts AS posts
-    INNER JOIN wp_users AS users ON users.ID = posts.post_author
+INNER JOIN wp_users AS users ON users.ID = posts.post_author
+INNER JOIN wp_postmeta AS postmeta ON postmeta.post_id = posts.ID
 WHERE
     posts.post_type = 'post'
     AND posts.post_status = 'publish'
